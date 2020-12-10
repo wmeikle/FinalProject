@@ -2,16 +2,6 @@ package Final;
 
 //Implement LoanObject class
 public class LoanObject {
-
-    /*Construct default Loan object**/
-
-
-    /* Construct a loan object with specified Initial amount and time in years */
-
-    /* Get Date Created*/
-
-    /* Return a string representation of this object */
-
     private java.util.Date dateCreated;
     private int creditScore = 0;
     private int initialAmmount = 0;
@@ -20,6 +10,7 @@ public class LoanObject {
     /** Construct a default loan object */
     public LoanObject() { dateCreated = new java.util.Date();}
 
+    /* Construct a loan object with specified Initial amount and time in years */
     /** Construct a Loan Object with the specified credit score, initial ammount, and time in years
      */
     public LoanObject(creditScore, initialAmmount, timeInYears) {
