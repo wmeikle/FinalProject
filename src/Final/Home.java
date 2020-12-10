@@ -1,15 +1,15 @@
 package Final;
 
 public class Home extends LoanObject {
-    /* Construct default Home loan object*/
+    /** Construct default Home loan object*/
 
-    /* Construct a home loan with specified APR*/
+    /** Construct a home loan with specified APR*/
 
-    /* Return APR*/
+    /** Return APR*/
 
-    /* Return final loan amount*/
+    /** Return final loan amount*/
 
-    /* Return monthly minimum payment*/
+    /** Return monthly minimum payment*/
 
-    /* Return string description of loan details */
+    /** Return string description of loan details */
 }
