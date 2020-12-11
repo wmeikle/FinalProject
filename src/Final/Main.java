@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
+import java.io.PrintWriter;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        File file = new File("data.txt");
 	    // Tell user what program does
         System.out.print("""
                 This program gets a loan type from the user, along with their
@@ -17,10 +19,29 @@ public class Main {
                 the total loan amount with interest included.
                 """);
         // Ask what type of loan they are inquiring about
-        System.out.println("""
-                Enter the loan type you would like an estimate for (e.g. "auto" or "home"):
-                """);
-        String loanType = input.next();
+        //System.out.println("""
+                //Enter the loan type you would like an estimate for (e.g. "auto" or "home"):
+                //""");
+        //String loanType = input.next();
+        for (int i = 0; i < 1; i++) {
+                String loanType = getString("Enter the loan type you would like an estimate for (auto or home): \n", input);
+            }
+        try{
+            for (int i = 0; i < 1; i++) {
+                int score = getInteger("Enter your estimated credit score: \n", input);
+                PrintWriter printWriter = new PrintWriter(file);
+                printWriter.write(String.format("%d%n", score));
+                printWriter.close();
+            }
+            for(int i = 0; i<1; i++){
+                System.out.print("Enter the amount of the loan in whole dollars: ");
+
+            }
+
+        }catch(IOException e){
+            e.printStackTrace();
+            System.exit(1);
+        }
 
 
 
