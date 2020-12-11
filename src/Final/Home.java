@@ -1,11 +1,18 @@
 package Final;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Home extends LoanObject {
     private double apr;
-    private static File file = new File("data.txt");
 
     /** Construct default Home loan object*/
     public Home() {}
@@ -13,11 +20,11 @@ public class Home extends LoanObject {
     /** Return APR*/
     try {
         // read from file to get creditScore and convert to APR, return apr
+        List<Integer> ints = Files.lines(Paths.get(data.txt))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
 
-        Scanner input = new Scanner(file);
-
-
-        switch ((630 <== CreditScore && CreditScore <= 689) ? 0: (690 <== CreditScore && CreditScore <= 719) ? 1: 2)
+        switch ((630 <== ints && ints <= 689) ? 0: (690 <== ints && ints <= 719) ? 1: 2)
         case 0:
             return apr = .00289;
         break;
