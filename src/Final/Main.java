@@ -29,4 +29,38 @@ public class Main {
         // Print toString and Goodbye message.
 
     }
+
+    private static int getInteger(String prompt, Scanner input){
+        System.out.print(prompt);
+        int validInt = -1;
+        while (input.hasNext()){
+            if (input.hasNextInt()){
+                validInt = input.nextInt();
+                break;
+            }else {
+                System.out.println("Error: Input must be an integer.");
+                System.out.print(prompt);
+                input.next();
+            }
+        }
+        return validInt;
+    }
+
+    private static String getString(String prompt, Scanner input){
+        System.out.print(prompt);
+        String validString = "";
+        while (input.hasNext()){
+            validString = input.next();
+            if(validString.equals("home")){
+                break;
+            }else if(validString.equals("auto")){
+                break;
+            } else{
+                System.out.println("Error: Input must be 'auto' or 'home'");
+                System.out.print(prompt);
+                input.next();
+            }
+        }
+        return validString;
+    }
 }
