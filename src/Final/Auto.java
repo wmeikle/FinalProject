@@ -17,12 +17,12 @@ public class Auto extends LoanObject {
 
     /** Return final loan amount*/
     public double FinalAmount() {
-        // calculation and return final amount
+        // Using previously inputted variables calculate and return final amount
     }
 
     /** Return monthly minimum payment*/
     public double MonthlyPayment() {
-        // calculate minimum monthly payment
+        // Using previously inputted variables calculate minimum monthly payment
     }
 
     /** Return string description of loan details */

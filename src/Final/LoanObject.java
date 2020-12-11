@@ -16,7 +16,7 @@ public class LoanObject {
     /** Construct a Loan Object with the specified credit score, initial ammount, and time in years
      */
     public LoanObject(CreditScore, InitialAmount, TimeInYears) {
-        //sudo code
+        //creates a loan object with inputed items.
     }
 
     /** Get values */
