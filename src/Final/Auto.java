@@ -1,10 +1,12 @@
 package Final;
 
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Auto extends LoanObject {
     private double apr;
+    private static File file = new File("data.txt");
 
     /** Construct default Auto loan object*/
     public Auto() {}
