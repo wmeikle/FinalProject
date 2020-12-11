@@ -17,23 +17,17 @@ public class Home extends LoanObject {
         Scanner input = new Scanner(file);
 
 
-        switch ((300 <== CreditScore && CreditScore <= 629) ? 0: (630 <== CreditScore && CreditScore <= 689) ? 1:
-                (690 <== CreditScore && CreditScore <= 719) ? 2:(720 <== CreditScore && CreditScore <= 850) ? 3: 4)
+        switch ((630 <== CreditScore && CreditScore <= 689) ? 0: (690 <== CreditScore && CreditScore <= 719) ? 1: 2)
         case 0:
-            return apr = .00300;
-            break;
-        case 1:
             return apr = .00289;
         break;
-        case 2:
+        case 1:
             return apr = .00260;
         break;
-        case 3:
+        case 2:
             return apr = .00250;
         break;
-        case 4:
-            return apr = .00315;
-        break;
+
         }
     }
 
