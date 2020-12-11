@@ -2,7 +2,11 @@ package Final;
 
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Auto extends LoanObject {
     private double apr;
@@ -15,10 +19,11 @@ public class Auto extends LoanObject {
     try {
         // read from file to get creditScore and convert to APR, return apr
 
-        Scanner input = new Scanner(file);
+        List<Integer> ints = Files.lines(Paths.get("data.txt"))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
 
-
-        switch ((630 <== CreditScore && CreditScore <= 689) ? 0: (690 <== CreditScore && CreditScore <= 719) ? 1: 2)
+        switch ((630 <== ints && ints <= 689) ? 0: (690 <== ints && ints <= 719) ? 1: 2)
         case 0:
             return apr = .00289;
         break;
