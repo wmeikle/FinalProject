@@ -7,6 +7,7 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 	    // Tell user what program does
         System.out.print("""
                 This program gets a loan type from the user, along with their
@@ -15,8 +16,13 @@ public class Main {
                 It then calculates and prints the apr, monthly minimum payments, and 
                 the total loan amount with interest included.
                 """);
-
         // Ask what type of loan they are inquiring about
+        System.out.println("""
+                Enter the loan type you would like an estimate for (e.g. "auto" or "home"):
+                """);
+        String loanType = input.next();
+
+
 
         // Get information of Loan input into list
 
