@@ -39,11 +39,8 @@ public class Main {
                 printWriter.close();
             }
             for(int i = 0; i<1; i++){
-                System.out.print("Enter the amount of the loan in whole dollars: ");
-                int InitialAmount = input.nextInt();
-                System.out.print("Enter the length of the loan in whole years: ");
-                int TimeInYears = input.nextInt();
-
+                int InitialAmount = validateAmount("Enter the amount of the loan in whole dollars: ", input);
+                int TimeInYears = validateLength("Enter the length of the loan in whole years: ", input);
             }
 
         }catch(IOException e){
@@ -91,5 +88,37 @@ public class Main {
             }
         }
         return validString;
+    }
+
+    private static int validateAmount(String prompt, Scanner input){
+        System.out.print(prompt);
+        int validInt = -1;
+        while (input.hasNext()){
+            if (input.hasNextInt()){
+                validInt = input.nextInt();
+                break;
+            }else {
+                System.out.println("Error: Input must be an integer.");
+                System.out.print(prompt);
+                input.next();
+            }
+        }
+        return validInt;
+    }
+
+    private static int validateLength(String prompt, Scanner input){
+        System.out.print(prompt);
+        int validInt = -1;
+        while (input.hasNext()){
+            if (input.hasNextInt()){
+                validInt = input.nextInt();
+                break;
+            }else {
+                System.out.println("Error: Input must be an integer.");
+                System.out.print(prompt);
+                input.next();
+            }
+        }
+        return validInt;
     }
 }
