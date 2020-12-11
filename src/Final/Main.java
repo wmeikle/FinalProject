@@ -18,16 +18,15 @@ public class Main {
                 It then calculates and prints the apr, monthly minimum payments, and 
                 the total loan amount with interest included.
                 """);
+
+        List<LoanObject> list = new ArrayList<>();
+
         // Ask what type of loan they are inquiring about
-        //System.out.println("""
-                //Enter the loan type you would like an estimate for (e.g. "auto" or "home"):
-                //""");
-        //String loanType = input.next();
         for (int i = 0; i < 1; i++) {
                 String loanType = getString("Enter the loan type you would like an estimate for (auto or home): \n", input);
             }
+        // Get information of Loan input into list
         try{
-
             for (int i = 0; i < 1; i++) {
                 int score = getInteger("Enter your estimated credit score: \n", input);
                 if (score < 630 || score > 850){
@@ -42,15 +41,10 @@ public class Main {
                 int InitialAmount = validateAmount("Enter the amount of the loan in whole dollars: ", input);
                 int TimeInYears = validateLength("Enter the length of the loan in whole years: ", input);
             }
-
         }catch(IOException e){
             e.printStackTrace();
             System.exit(1);
         }
-
-
-
-        // Get information of Loan input into list
 
         // Print toString and Goodbye message.
 
