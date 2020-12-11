@@ -4,7 +4,7 @@ package Final;
 public class LoanObject {
     private java.util.Date dateCreated;
     private int CreditScore = 0;
-    private int InitialAmmount = 0;
+    private int InitialAmount = 0;
     private int TimeInYears = 0;
     private double FinalTotal = 0.00;
     private double Payment = 0.00;
@@ -15,14 +15,14 @@ public class LoanObject {
     /* Construct a loan object with specified Initial amount and time in years */
     /** Construct a Loan Object with the specified credit score, initial ammount, and time in years
      */
-    public LoanObject(CreditScore, InitialAmmount, TimeInYears) {
+    public LoanObject(CreditScore, InitialAmount, TimeInYears) {
         //sudo code
     }
 
     /** Get values */
     public int getCreditScore() {}
 
-    public int getInitialAmmount() {}
+    public int getInitialAmount() {}
 
     public int getTimeInYears() {}
 
@@ -44,7 +44,7 @@ public class LoanObject {
 
     /** Return a string representation of this object */
     public String toString() {
-        // Intitial return language
+        // Initial return language
     }
 
 }
