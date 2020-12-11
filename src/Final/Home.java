@@ -23,7 +23,7 @@ public class Home extends LoanObject {
     public double MonthlyPayment(int InitialAmmount, apr, int TimeInYears) {
         // Using previously inputted variables calculate minimum monthly payment
         double monthlyPayment = (InitialAmmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
-        return monthlyPayment
+        return monthlyPayment;
     }
 
     /** Return string description of loan details */
