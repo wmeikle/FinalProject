@@ -39,7 +39,11 @@ public class Home extends LoanObject {
     }
 
     /** Construct a auto loan with specified APR*/
-    public Home (apr, int LoanAmount, int TimeInYears) {}
+    public Home (apr, int InitialAmount, int TimeInYears) {
+        this.apr = apr;
+        setInitialAmount(InitialAmount);
+        setTimeInYears(TimeInYears);
+    }
 
     /** Return monthly minimum payment*/
     public double MonthlyPayment(int InitialAmmount, apr, int TimeInYears) {

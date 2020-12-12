@@ -1,5 +1,7 @@
 package Final;
 
+import java.security.PublicKey;
+
 //Implement LoanObject class
 public class LoanObject {
     private java.util.Date dateCreated;
@@ -20,15 +22,20 @@ public class LoanObject {
     }
 
     /** Get values */
-    public int getCreditScore() {}
+    public int getCreditScore() {return CreditScore;}
+    public void setCreditScore(int CreditScore) {this.CreditScore = CreditScore;}
 
-    public int getInitialAmount() {}
+    public int getInitialAmount() {return InitialAmount;}
+    public void setInitialAmount(int InitialAmount) {this.InitialAmount = InitialAmount;}
 
-    public int getTimeInYears() {}
+    public int getTimeInYears() {return TimeInYears;}
+    public void setTimeInYears(int TimeInYears) {this.TimeInYears = TimeInYears;}
 
-    public double getFinalTotal() {}
+    public double getFinalTotal() {return FinalTotal;}
+    public void setFinalTotal(double FinalTotal) {this.FinalTotal = FinalTotal;}
 
-    public double getPayment() {}
+    public double getPayment() {return Payment;}
+    public void setPayment(double Payment) {this.Payment = Payment;}
 
 
     /** Get Date Created*/
@@ -45,6 +52,9 @@ public class LoanObject {
     /** Return a string representation of this object */
     public String toString() {
         // Initial return language
+        return "Created on " + dateCreated + "\nBegining Loan Ammount: " + InitialAmount +
+                "\nMonthly Payment: " + Payment + "\nTotal Paid with interest at life of loan: "
+                + FinalTotal;
     }
 
 }

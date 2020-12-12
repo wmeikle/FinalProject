@@ -13,7 +13,9 @@ public class Auto extends LoanObject {
     private static File file = new File("data.txt");
 
     /** Construct default Auto loan object*/
-    public Auto() {}
+    public Auto() {
+
+    }
 
     /** Return APR*/
     try {
@@ -37,7 +39,11 @@ public class Auto extends LoanObject {
 }
 
     /** Construct a auto loan with specified APR*/
-    public Auto (double apr, int LoanAmount, int TimeInYears) {}
+    public Auto (double apr, int InitialAmount, int TimeInYears) {
+        this.apr = apr;
+        setInitialAmount(InitialAmount);
+        setTimeInYears(TimeInYears);
+    }
 
     /** Return monthly minimum payment*/
     public double MonthlyPayment(int InitialAmmount, apr, int TimeInYears) {
