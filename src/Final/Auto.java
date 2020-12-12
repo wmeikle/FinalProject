@@ -2,6 +2,7 @@ package Final;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -21,28 +22,41 @@ public class Auto extends LoanObject {
 
         // read from file to get creditScore and convert to APR, return apr
     public double getApr () {
+        try {
+            Scanner scanner = new Scanner(new File("data.txt"));
+            int[] tall = new int[1];
+            int i = 0;
+            while (scanner.hasNextInt()) {
+                tall[i++] = scanner.nextInt();
+            }
+            int sum = 0;
+            for (int num : tall) {
+                sum = sum + num;
+                return sum;
+            }
 
-        List<Integer> ints1 = Files.lines(Paths.get("data.txt"))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-        int ints = Integer.parseInt(ints1);
 
-        switch ((630 <= ints && ints <= 689) ? 0 : (690 <= ints && ints <= 719) ? 1 : 2) {
-            case 0:
-                return apr = .00289;
-            break;
-            case 1:
-                return apr = .00260;
-            break;
-            case 2:
-                return apr = .00250;
-            break;
+            switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : 2) {
+                case 0:
+                    return apr = .00289;
+
+                case 1:
+                    return apr = .00260;
+
+                case 2:
+                    return apr = .00250;
+
+            }
+            return apr;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
         }
         return apr;
     }
 
     /** Construct a auto loan with specified APR*/
-    public Auto (double apr, int InitialAmount, int TimeInYears) {
+    public Auto(double apr, int InitialAmount, int TimeInYears) {
         this.apr = apr;
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
@@ -52,9 +66,9 @@ public class Auto extends LoanObject {
     }
 
     /** Return monthly minimum payment*/
-    public double MonthlyPayment(int InitialAmmount, double apr, int TimeInYears) {
+    public double MonthlyPayment(int InitialAmount, double apr, int TimeInYears) {
         // Using previously inputted variables calculate minimum monthly payment
-        double monthlyPayment = (InitialAmmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
+        double monthlyPayment = (InitialAmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
         return monthlyPayment;
     }
 
@@ -64,9 +78,11 @@ public class Auto extends LoanObject {
         double finalAmount = ((monthlyPayment / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (TimeInYears*12))))));
         return finalAmount;
     }
-
-    /** Return string description of loan details */
-    public String toString () {
-        // final string of loan details
+    @Override
+    public String toString() {
+        // Initial return language
+        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: " + getInitialAmount() +
+                "\nMonthly Payment: " + getPayment() + "\nTotal Paid with interest at life of loan: "
+                + getFinalTotal();
     }
 }
