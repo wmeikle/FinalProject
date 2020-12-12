@@ -32,10 +32,13 @@ try{
         }
 
 
-    return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1) {
-        case 0 -> apr = .00289;
-        case 1 -> apr = .00260;
-        case 2 -> apr = .00250;
+    return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : (720 <= sum && sum <= 850)
+            ? 2 : 3) {
+        case 0 -> apr = 2.89;
+        case 1 -> apr = 2.6;
+        case 2 -> apr = 2.5;
+        default -> apr = 3.0;
+
     };
 }catch (IOException e) {
     e.printStackTrace();
@@ -52,9 +55,20 @@ try{
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        int tim = getTimeInYears() * 12;
-        double Payment = ((getInitialAmount() * (getApr()/12)) / (1-Math.pow(1+(getApr()/12), -tim)));
+        /**
+         * A = P ((r(1+r)^n) / ((1+r)^n-1))
+         */
+        double P = getInitialAmount();
+        double r = getApr() / (100 * 12);
+        double n = getTimeInYears() * 12;
+        double Payment = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
         return Payment;
+
+        //double tim = getTimeInYears() * 12;
+        //double r = (getApr() / 100) / 12;
+        //double Payment = ((getInitialAmount() * (getApr()/12)) / (1-Math.pow(1+(getApr()/12), -tim)));
+        //double Payment = getInitialAmount() * ((r * Math.pow((1+r), tim)) / (Math.pow((1 + r), tim) - 1));
+        //return Payment;
     }
 
     /** Return final loan amount*/
