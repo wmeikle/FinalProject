@@ -4,7 +4,7 @@ package Final;
 //Implement LoanObject class
 public class LoanObject {
     private java.util.Date dateCreated;
-    private int InitialAmount = 0;
+    private double InitialAmount = 0;
     private int TimeInYears = 0;
 
     /** Construct a default loan object */
@@ -19,8 +19,8 @@ public class LoanObject {
     }
 
     /** Get values */
-    public int getInitialAmount() {return InitialAmount;}
-    public void setInitialAmount(int InitialAmount) {this.InitialAmount = InitialAmount;}
+    public double getInitialAmount() {return InitialAmount;}
+    public void setInitialAmount(double InitialAmount) {this.InitialAmount = InitialAmount;}
 
     public int getTimeInYears() {return TimeInYears;}
     public void setTimeInYears(int TimeInYears) {this.TimeInYears = TimeInYears;}

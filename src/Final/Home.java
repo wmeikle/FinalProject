@@ -51,7 +51,7 @@ try{
 
     }
     /** Construct a auto loan with specified APR*/
-    public Home ( int InitialAmount, int TimeInYears) {
+    public Home (double InitialAmount, int TimeInYears) {
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
     }
