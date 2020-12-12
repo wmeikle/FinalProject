@@ -42,7 +42,7 @@ public class Main {
                 }
                 for(int i = 0; i<1; i++){
                     double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
-                    int TimeInYears = getInteger("Enter the length of the loan in whole years: \n\n", input);
+                    int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
 
                     Home loan = new Home(InitialAmount, TimeInYears);
                     list.add(loan);

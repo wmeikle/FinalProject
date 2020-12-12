@@ -78,7 +78,7 @@ public class Auto extends LoanObject {
     @Override
     public String toString() {
         // Initial return language
-        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: $" + df.format(getInitialAmount()) +
+        return "\nCreated on " + getDateCreated() + "\nBeginning Loan Amount: $" + df.format(getInitialAmount()) +
                 "\nMonthly Payment: $" + df.format(Payment()) + "\nTotal Paid with interest at life of loan: $"
                 + df.format(FinalTotal());
     }

@@ -59,10 +59,14 @@ try{
          * A = P ((r(1+r)^n) / ((1+r)^n-1))
          */
         double P = getInitialAmount();
-        double r = getApr() / (100 * 12);
+        double r = (getApr()/100) / 12;
         double n = getTimeInYears() * 12;
-        double Payment = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-        return Payment;
+        //double Payment = (P * r) / (1 - Math.pow(1 + r, -n));
+       // return Payment;
+        //double monthlyRate = (rate/100.0) / 12;
+        //int termsInMonths = term * 12;
+        double monthlyPayment = (r * P)/(1-Math.pow((1+r), -n));
+        return monthlyPayment;
     }
 
     /** Return final loan amount*/
@@ -77,7 +81,7 @@ try{
     @Override
     public String toString() {
         // Initial return language
-        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: $" + df.format(getInitialAmount()) +
+        return "\nCreated on " + getDateCreated() + "\nBeginning Loan Amount: $" + df.format(getInitialAmount()) +
                 "\nMonthly Payment: $" + df.format(Payment()) + "\nTotal Paid with interest at life of loan: $"
                 + df.format(FinalTotal());
     }
