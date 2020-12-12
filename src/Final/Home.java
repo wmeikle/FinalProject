@@ -10,16 +10,12 @@ public class Home extends LoanObject {
     /** Construct default Home loan object*/
     public Home() {}
 
-    public Home(int initialAmount, int timeInYears) {
+    public Home(int InitialAmount, int TimeInYears, int CreditScore) {
     }
 
     /** Return APR*/
     public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
-        /**List<Integer> ints1 = Files.lines(Paths.get("data.txt"))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-        int ints = Integer.parseInt(ints1);*/
 try{
         Scanner scanner = new Scanner(new File("data.txt"));
         int [] tall = new int [1];
@@ -55,8 +51,7 @@ try{
 
     }
     /** Construct a auto loan with specified APR*/
-    public Home (double apr, int InitialAmount, int TimeInYears) {
-        this.apr = apr;
+    public Home ( int InitialAmount, int TimeInYears) {
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
     }
@@ -64,14 +59,16 @@ try{
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        double Payment = (getInitialAmount() * apr) / (1-Math.pow(1+apr, (-getTimeInYears()*12)));
+        int tim = getTimeInYears() * 12;
+        double Payment = ((getInitialAmount() * (apr/12)) / (1-Math.pow(1+(apr/12), -tim)));
         return Payment;
     }
 
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        double FinalTotal = ((getPayment() / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (getTimeInYears()*12))))));
+        int tim = getTimeInYears() * 12;
+        double FinalTotal = Payment() * tim;
         return FinalTotal;
     }
 

@@ -13,6 +13,7 @@ public class Auto extends LoanObject {
 
     }
 
+
     /** Return APR*/
 
         // read from file to get creditScore and convert to APR, return apr
@@ -51,28 +52,27 @@ public class Auto extends LoanObject {
     }
 
     /** Construct a auto loan with specified APR*/
-    public Auto(double apr, int InitialAmount, int TimeInYears) {
-        this.apr = apr;
+    public Auto (int InitialAmount, int TimeInYears) {
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
-    }
-
-    public Auto(int initialAmount, int timeInYears) {
     }
 
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        double Payment = (getInitialAmount() * apr) / (1-Math.pow(1+apr, (-getTimeInYears()*12)));
+        int tim = getTimeInYears() * 12;
+        double Payment = ((getInitialAmount() * (apr/12)) / (1-Math.pow(1+(apr/12), -tim)));
         return Payment;
     }
 
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        double FinalTotal = ((getPayment() / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (getTimeInYears()*12))))));
+        int tim = getTimeInYears() * 12;
+        double FinalTotal = Payment() * tim;
         return FinalTotal;
     }
+
     @Override
     public String toString() {
         // Initial return language
