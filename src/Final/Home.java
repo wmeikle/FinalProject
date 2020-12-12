@@ -70,17 +70,17 @@ try{
     }
 
     /** Return monthly minimum payment*/
-    public double MonthlyPayment(int InitialAmount, double apr, int TimeInYears) {
+    public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        double monthlyPayment = (InitialAmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
-        return monthlyPayment;
+        double Payment = (getInitialAmount() * apr) / (1-Math.pow(1+apr, (-getTimeInYears()*12)));
+        return Payment;
     }
 
     /** Return final loan amount*/
-    public double FinalAmount(double monthlyPayment, double apr, int TimeInYears) {
+    public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        double finalAmount = ((monthlyPayment / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (TimeInYears*12))))));
-        return finalAmount;
+        double FinalTotal = ((getPayment() / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (getTimeInYears()*12))))));
+        return FinalTotal;
     }
 
 
@@ -88,7 +88,7 @@ try{
     public String toString() {
         // Initial return language
         return "Created on " + getDateCreated() + "\nBegining Loan Ammount: " + getInitialAmount() +
-                "\nMonthly Payment: " + getPayment() + "\nTotal Paid with interest at life of loan: "
-                + getFinalTotal();
+                "\nMonthly Payment: " + Payment() + "\nTotal Paid with interest at life of loan: "
+                + FinalTotal();
     }
 }
