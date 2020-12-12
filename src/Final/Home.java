@@ -63,12 +63,6 @@ try{
         double n = getTimeInYears() * 12;
         double Payment = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
         return Payment;
-
-        //double tim = getTimeInYears() * 12;
-        //double r = (getApr() / 100) / 12;
-        //double Payment = ((getInitialAmount() * (getApr()/12)) / (1-Math.pow(1+(getApr()/12), -tim)));
-        //double Payment = getInitialAmount() * ((r * Math.pow((1+r), tim)) / (Math.pow((1 + r), tim) - 1));
-        //return Payment;
     }
 
     /** Return final loan amount*/
