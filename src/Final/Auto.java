@@ -38,6 +38,7 @@ public class Auto extends LoanObject {
                 return apr = .00250;
             break;
         }
+        return apr;
     }
 
     /** Construct a auto loan with specified APR*/

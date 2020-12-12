@@ -40,6 +40,7 @@ public class Home extends LoanObject {
             break;
 
         }
+        return apr;
     }
 
     /** Construct a auto loan with specified APR*/
