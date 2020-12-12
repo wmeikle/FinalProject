@@ -2,6 +2,7 @@ package Final;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Home extends LoanObject {
@@ -71,13 +72,13 @@ try{
         double FinalTotal = Payment() * tim;
         return FinalTotal;
     }
-
+    DecimalFormat df = new DecimalFormat("###,##0.00");
 
     @Override
     public String toString() {
         // Initial return language
-        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: " + getInitialAmount() +
-                "\nMonthly Payment: " + Payment() + "\nTotal Paid with interest at life of loan: "
-                + FinalTotal();
+        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: $" + df.format(getInitialAmount()) +
+                "\nMonthly Payment: $" + df.format(Payment()) + "\nTotal Paid with interest at life of loan: $"
+                + df.format(FinalTotal());
     }
 }
