@@ -20,9 +20,10 @@ public class Home extends LoanObject {
     /** Return APR*/
     public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
-        List<Integer> ints = Files.lines(Paths.get("data.txt"))
+        List<Integer> ints1 = Files.lines(Paths.get("data.txt"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
+        int ints = Integer.parseInt(ints1);
 
         switch ((630 <= ints && ints <= 689) ? 0 : (690 <= ints && ints <= 719) ? 1 : 2) {
             case 0:
