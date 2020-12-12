@@ -18,25 +18,27 @@ public class Auto extends LoanObject {
     }
 
     /** Return APR*/
-    try {
-        // read from file to get creditScore and convert to APR, return apr
 
+        // read from file to get creditScore and convert to APR, return apr
+    public double getApr () {
+
+        int ints = 0;
         List<Integer> ints = Files.lines(Paths.get("data.txt"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
-        switch ((630 <= ints && ints <= 689) ? 0: (690 <= ints && ints <= 719) ? 1: 2) {
-        case 0:
-            return apr = .00289;
-        break;
-        case 1:
-            return apr = .00260;
-        break;
-        case 2:
-            return apr = .00250;
-        break;
+        switch ((630 <= ints && ints <= 689) ? 0 : (690 <= ints && ints <= 719) ? 1 : 2) {
+            case 0:
+                return apr = .00289;
+            break;
+            case 1:
+                return apr = .00260;
+            break;
+            case 2:
+                return apr = .00250;
+            break;
+        }
     }
-}
 
     /** Construct a auto loan with specified APR*/
     public Auto (double apr, int InitialAmount, int TimeInYears) {

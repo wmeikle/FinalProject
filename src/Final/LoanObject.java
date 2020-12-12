@@ -17,8 +17,10 @@ public class LoanObject {
     /* Construct a loan object with specified Initial amount and time in years */
     /** Construct a Loan Object with the specified credit score, initial ammount, and time in years
      */
-    public LoanObject(CreditScore, InitialAmount, TimeInYears) {
-        //creates a loan object with inputed items.
+    public LoanObject(int CreditScore, int InitialAmount, int TimeInYears) {
+        this.CreditScore = CreditScore;
+        this.InitialAmount = InitialAmount;
+        this.TimeInYears = TimeInYears;
     }
 
     /** Get values */

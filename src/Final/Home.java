@@ -18,28 +18,29 @@ public class Home extends LoanObject {
     public Home() {}
 
     /** Return APR*/
-    try {
+    public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
+        int ints = 0;
         List<Integer> ints = Files.lines(Paths.get("data.txt"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
-        switch ((630 <= ints && ints <= 689) ? 0: (690 <= ints && ints <= 719) ? 1: 2) {
-        case 0:
-            return apr = .00289;
-        break;
-        case 1:
-            return apr = .00260;
-        break;
-        case 2:
-            return apr = .00250;
-        break;
+        switch ((630 <= ints && ints <= 689) ? 0 : (690 <= ints && ints <= 719) ? 1 : 2) {
+            case 0:
+                return apr = .00289;
+            break;
+            case 1:
+                return apr = .00260;
+            break;
+            case 2:
+                return apr = .00250;
+            break;
 
         }
     }
 
     /** Construct a auto loan with specified APR*/
-    public Home (apr, int InitialAmount, int TimeInYears) {
+    public Home (double apr, int InitialAmount, int TimeInYears) {
         this.apr = apr;
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
