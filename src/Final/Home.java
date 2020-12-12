@@ -46,16 +46,16 @@ public class Home extends LoanObject {
     }
 
     /** Return monthly minimum payment*/
-    public double MonthlyPayment(int InitialAmmount, apr, int TimeInYears) {
+    public double MonthlyPayment(int InitialAmmount, double apr, int TimeInYears) {
         // Using previously inputted variables calculate minimum monthly payment
         double monthlyPayment = (InitialAmmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
         return monthlyPayment;
     }
 
     /** Return final loan amount*/
-    public double FinalAmount(double monthlyPayment, apr, int TimeInYears) {
+    public double FinalAmount(double monthlyPayment, double apr, int TimeInYears) {
         // Using previously inputted variables calculate and return final amount
-        double finalAmount = ((monthlyPayment / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12), (TimeInYears*12)))));
+        double finalAmount = ((monthlyPayment / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (TimeInYears*12))))));
         return finalAmount;
     }
 
