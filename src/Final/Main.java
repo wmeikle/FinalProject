@@ -20,13 +20,37 @@ public class Main {
                 """);
 
         List<LoanObject> list = new ArrayList<>();
+        String loanType = "";
 
         // Ask what type of loan they are inquiring about
         for (int i = 0; i < 1; i++) {
-                String loanType = getString(input);
+                loanType = getString(input);
             }
         // Get information of Loan input into list
-        try{
+        if (loanType.equals("home")){
+            try{
+                for (int i = 0; i < 1; i++) {
+                    int score = getInteger("Enter your estimated credit score: \n", input);
+                    if (score < 630 || score > 850){
+                        System.out.print("Your gonna need either a higher or real score if you want a valid estimate. Start over and try again.");
+                        System.exit(2);
+                    }
+                    PrintWriter printWriter = new PrintWriter(file);
+                    printWriter.write(String.format("%d%n", score));
+                    printWriter.close();
+                }
+                for(int i = 0; i<1; i++){
+                    int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                    int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
+
+                    Home loan = new Home(InitialAmount, TimeInYears);
+                    list.add(loan);
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }else try{
             for (int i = 0; i < 1; i++) {
                 int score = getInteger("Enter your estimated credit score: \n", input);
                 if (score < 630 || score > 850){
@@ -41,8 +65,8 @@ public class Main {
                 int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
                 int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
 
-                list.add(InitialAmount);
-                list.add(TimeInYears);
+                Auto loan = new Auto(InitialAmount, TimeInYears);
+                list.add(loan);
             }
         }catch(IOException e){
             e.printStackTrace();

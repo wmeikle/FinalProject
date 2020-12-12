@@ -17,6 +17,9 @@ public class Home extends LoanObject {
     /** Construct default Home loan object*/
     public Home() {}
 
+    public Home(int initialAmount, int timeInYears) {
+    }
+
     /** Return APR*/
     public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
@@ -46,9 +49,9 @@ public class Home extends LoanObject {
     }
 
     /** Return monthly minimum payment*/
-    public double MonthlyPayment(int InitialAmmount, double apr, int TimeInYears) {
+    public double MonthlyPayment(int InitialAmount, double apr, int TimeInYears) {
         // Using previously inputted variables calculate minimum monthly payment
-        double monthlyPayment = (InitialAmmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
+        double monthlyPayment = (InitialAmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
         return monthlyPayment;
     }
 
