@@ -33,11 +33,10 @@ public class Auto extends LoanObject {
             }
 
 
-            return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : 2) {
+            return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1) {
                 case 0 -> apr = .00289;
                 case 1 -> apr = .00260;
                 case 2 -> apr = .00250;
-                default -> apr;
             };
         } catch (IOException e) {
             e.printStackTrace();
