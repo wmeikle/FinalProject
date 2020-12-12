@@ -33,18 +33,12 @@ public class Auto extends LoanObject {
             }
 
 
-            switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : 2) {
-                case 0:
-                    return apr = .00289;
-
-                case 1:
-                    return apr = .00260;
-
-                case 2:
-                    return apr = .00250;
-
-            }
-            return apr;
+            return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : 2) {
+                case 0 -> apr = .00289;
+                case 1 -> apr = .00260;
+                case 2 -> apr = .00250;
+                default -> apr;
+            };
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -62,7 +56,7 @@ public class Auto extends LoanObject {
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
         int tim = getTimeInYears() * 12;
-        double Payment = ((getInitialAmount() * (apr/12)) / (1-Math.pow(1+(apr/12), -tim)));
+        double Payment = ((getInitialAmount() * (getApr()/12)) / (1-Math.pow(1+(getApr()/12), -tim)));
         return Payment;
     }
 
