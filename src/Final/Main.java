@@ -40,7 +40,7 @@ public class Main {
                     printWriter.close();
                 }
                 for(int i = 0; i<1; i++){
-                    int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                    double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
                     int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
 
                     Home loan = new Home(InitialAmount, TimeInYears);
@@ -63,7 +63,7 @@ public class Main {
                 printWriter.close();
             }
             for(int i = 0; i<1; i++){
-                int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
                 int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
 
                 Auto loan = new Auto(InitialAmount, TimeInYears);

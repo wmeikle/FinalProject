@@ -2,6 +2,7 @@ package Final;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Auto extends LoanObject {
@@ -12,6 +13,7 @@ public class Auto extends LoanObject {
     public Auto() {
 
     }
+
 
     /** Return APR*/
 
@@ -31,18 +33,13 @@ public class Auto extends LoanObject {
             }
 
 
-            switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : 2) {
-                case 0:
-                    return apr = .00289;
-
-                case 1:
-                    return apr = .00260;
-
-                case 2:
-                    return apr = .00250;
-
-            }
-            return apr;
+            return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : (720 <= sum && sum <= 850)
+                    ? 2 : 3) {
+                case 0 -> apr = 7.625;
+                case 1 -> apr = 4.68;
+                case 2 -> apr = 3.65;
+                default -> apr = 11.92;
+            };
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -51,33 +48,38 @@ public class Auto extends LoanObject {
     }
 
     /** Construct a auto loan with specified APR*/
-    public Auto(double apr, int InitialAmount, int TimeInYears) {
-        this.apr = apr;
+    public Auto (double InitialAmount, int TimeInYears) {
         setInitialAmount(InitialAmount);
         setTimeInYears(TimeInYears);
     }
 
-    public Auto(int initialAmount, int timeInYears) {
-    }
-
     /** Return monthly minimum payment*/
-    public double MonthlyPayment(int InitialAmount, double apr, int TimeInYears) {
+    public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        double monthlyPayment = (InitialAmount * apr) / (1-Math.pow(1+apr, (-TimeInYears*12)));
-        return monthlyPayment;
+        /**
+         * A = P ((r(1+r)^n) / ((1+r)^n-1))
+         */
+        double P = getInitialAmount();
+        double r = (getApr() / 100) / 12;
+        double n = getTimeInYears() * 12;
+
+        double Payment = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        return Payment;
     }
 
     /** Return final loan amount*/
-    public double FinalAmount(double monthlyPayment, double apr, int TimeInYears) {
+    public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        double finalAmount = ((monthlyPayment / ((apr*100)/12) * (1-(1/Math.pow(1 +(apr*100)/12, (TimeInYears*12))))));
-        return finalAmount;
+        int tim = getTimeInYears() * 12;
+        double FinalTotal = Payment() * tim;
+        return FinalTotal;
     }
+    DecimalFormat df = new DecimalFormat("###,##0.00");
     @Override
     public String toString() {
         // Initial return language
-        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: " + getInitialAmount() +
-                "\nMonthly Payment: " + getPayment() + "\nTotal Paid with interest at life of loan: "
-                + getFinalTotal();
+        return "Created on " + getDateCreated() + "\nBegining Loan Ammount: $" + df.format(getInitialAmount()) +
+                "\nMonthly Payment: $" + df.format(Payment()) + "\nTotal Paid with interest at life of loan: $"
+                + df.format(FinalTotal());
     }
 }
