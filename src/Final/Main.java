@@ -17,6 +17,7 @@ public class Main {
                 whole dollars, and the length of the loan in years as integer values.
                 It then calculates and prints the apr, monthly minimum payments, and 
                 the total loan amount with interest included.
+                
                 """);
 
         List<LoanObject> list = new ArrayList<>();
@@ -41,7 +42,7 @@ public class Main {
                 }
                 for(int i = 0; i<1; i++){
                     double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
-                    int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
+                    int TimeInYears = getInteger("Enter the length of the loan in whole years: \n\n", input);
 
                     Home loan = new Home(InitialAmount, TimeInYears);
                     list.add(loan);
