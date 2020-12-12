@@ -46,6 +46,7 @@ public class Main {
                     Home loan = new Home(InitialAmount, TimeInYears);
                     list.add(loan);
                 }
+                list.forEach(System.out::println);
             }catch(IOException e){
                 e.printStackTrace();
                 System.exit(1);
@@ -68,6 +69,7 @@ public class Main {
                 Auto loan = new Auto(InitialAmount, TimeInYears);
                 list.add(loan);
             }
+            list.forEach(System.out::println);
         }catch(IOException e){
             e.printStackTrace();
             System.exit(1);
