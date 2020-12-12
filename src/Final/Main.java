@@ -38,8 +38,11 @@ public class Main {
                 printWriter.close();
             }
             for(int i = 0; i<1; i++){
-                int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: ", input);
-                int TimeInYears = getInteger("Enter the length of the loan in whole years: ", input);
+                int InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
+
+                list.add(InitialAmount);
+                list.add(TimeInYears);
             }
         }catch(IOException e){
             e.printStackTrace();
