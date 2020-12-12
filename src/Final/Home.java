@@ -20,7 +20,6 @@ public class Home extends LoanObject {
     /** Return APR*/
     public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
-        int ints = 0;
         List<Integer> ints = Files.lines(Paths.get("data.txt"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());

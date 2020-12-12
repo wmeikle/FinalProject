@@ -47,9 +47,9 @@ public class LoanObject {
     }
 
     /** Opens a file named data.txt and writes the creditScore to file */
-    try {
+    //try {
         // code will open a new txt file and write the creditScore to it
-    }
+    //}
 
     /** Return a string representation of this object */
     public String toString() {

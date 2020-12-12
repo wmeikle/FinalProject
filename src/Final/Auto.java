@@ -22,7 +22,6 @@ public class Auto extends LoanObject {
         // read from file to get creditScore and convert to APR, return apr
     public double getApr () {
 
-        int ints = 0;
         List<Integer> ints = Files.lines(Paths.get("data.txt"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
