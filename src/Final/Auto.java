@@ -47,6 +47,9 @@ public class Auto extends LoanObject {
         setTimeInYears(TimeInYears);
     }
 
+    public Auto(int initialAmount, int timeInYears) {
+    }
+
     /** Return monthly minimum payment*/
     public double MonthlyPayment(int InitialAmmount, double apr, int TimeInYears) {
         // Using previously inputted variables calculate minimum monthly payment
