@@ -7,11 +7,9 @@ import java.util.Scanner;
 
 public class Auto extends LoanObject {
     private double apr;
-    private static File file = new File("data.txt");
 
     /** Construct default Auto loan object*/
     public Auto() {
-
     }
 
 
@@ -56,23 +54,19 @@ public class Auto extends LoanObject {
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        /**
-         * A = P ((r(1+r)^n) / ((1+r)^n-1))
-         */
+        /*A = P ((r(1+r)^n) / ((1+r)^n-1))*/
         double P = getInitialAmount();
         double r = (getApr() / 100) / 12;
         double n = getTimeInYears() * 12;
 
-        double Payment = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-        return Payment;
+        return (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     }
 
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
         int tim = getTimeInYears() * 12;
-        double FinalTotal = Payment() * tim;
-        return FinalTotal;
+        return Payment() * tim;
     }
     DecimalFormat df = new DecimalFormat("###,##0.00");
     @Override

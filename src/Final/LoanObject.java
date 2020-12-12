@@ -11,7 +11,7 @@ public class LoanObject {
     public LoanObject() { dateCreated = new java.util.Date();}
 
     /* Construct a loan object with specified Initial amount and time in years */
-    /** Construct a Loan Object with the specified credit score, initial ammount, and time in years
+    /** Construct a Loan Object with the specified credit score, initial amount, and time in years
      */
     public LoanObject(int InitialAmount, int TimeInYears) {
         this.InitialAmount = InitialAmount;
@@ -33,7 +33,7 @@ public class LoanObject {
         return dateCreated;
     }
 
-    /** Opens a file named data.txt and writes the creditScore to file */
+    /* Opens a file named data.txt and writes the creditScore to file */
     //try {
         // code will open a new txt file and write the creditScore to it
     //}
@@ -41,7 +41,7 @@ public class LoanObject {
     /** Return a string representation of this object */
     public String toString() {
         // Initial return language
-        return "Created on " + dateCreated + "\nBegining Loan Ammount: " + InitialAmount;
+        return "Created on " + dateCreated + "\nBeginning Loan Amount: " + InitialAmount;
     }
 
 }

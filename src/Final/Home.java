@@ -11,9 +11,6 @@ public class Home extends LoanObject {
     /** Construct default Home loan object*/
     public Home() {}
 
-    public Home(int InitialAmount, int TimeInYears, int CreditScore) {
-    }
-
     /** Return APR*/
     public double getApr () {
         // read from file to get creditScore and convert to APR, return apr
@@ -59,22 +56,20 @@ try{
          * A = P ((r(1+r)^n) / ((1+r)^n-1))
          */
         double P = getInitialAmount();
-        double r = (getApr()/100) / 12;
+        double r = (getApr()/100.0) / 12;
         double n = getTimeInYears() * 12;
-        //double Payment = (P * r) / (1 - Math.pow(1 + r, -n));
-       // return Payment;
+        return (P * r) / (1 - Math.pow((1 + r), -n));
         //double monthlyRate = (rate/100.0) / 12;
         //int termsInMonths = term * 12;
-        double monthlyPayment = (r * P)/(1-Math.pow((1+r), -n));
-        return monthlyPayment;
+        //double monthlyPayment = (r * P)/(1-Math.pow((1+r), -n));
+       //return monthlyPayment;
     }
 
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
         int tim = getTimeInYears() * 12;
-        double FinalTotal = Payment() * tim;
-        return FinalTotal;
+        return Payment() * tim;
     }
     DecimalFormat df = new DecimalFormat("###,##0.00");
 
