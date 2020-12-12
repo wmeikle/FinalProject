@@ -25,7 +25,7 @@ public class Auto extends LoanObject {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
-        switch ((630 <= ints && ints <= 689) ? 0: (690 <= ints && ints <= 719) ? 1: 2)
+        switch ((630 <= ints && ints <= 689) ? 0: (690 <= ints && ints <= 719) ? 1: 2) {
         case 0:
             return apr = .00289;
         break;
