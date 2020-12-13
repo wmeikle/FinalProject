@@ -27,7 +27,6 @@ public class Auto extends LoanObject {
             int sum = 0;
             for (int num : tall) {
                 sum = sum + num;
-                return sum;
             }
 
 
@@ -54,12 +53,13 @@ public class Auto extends LoanObject {
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        /*A = P ((r(1+r)^n) / ((1+r)^n-1))*/
+        /**
+         * A = P ((r(1+r)^n) / ((1+r)^n-1))
+         */
         double P = getInitialAmount();
-        double r = (getApr() / 100) / 12;
-        double n = getTimeInYears() * 12;
-
-        return (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        double r = (getApr()/100.0) / 12;
+        double n = (getTimeInYears() *12) * 12;
+        return P / ((Math.pow((1 + r), n)-1) / (r * (Math.pow((1 + r), n))));
     }
 
     /** Return final loan amount*/

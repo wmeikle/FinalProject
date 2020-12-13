@@ -25,17 +25,14 @@ try{
         int sum = 0;
         for( int num : tall) {
             sum = sum+num;
-            return sum;
         }
 
-
     return switch ((630 <= sum && sum <= 689) ? 0 : (690 <= sum && sum <= 719) ? 1 : (720 <= sum && sum <= 850)
-            ? 2 : 3) {
+          ? 2 : 3) {
         case 0 -> apr = 2.89;
         case 1 -> apr = 2.6;
         case 2 -> apr = 2.5;
         default -> apr = 3.0;
-
     };
 }catch (IOException e) {
     e.printStackTrace();
@@ -57,12 +54,8 @@ try{
          */
         double P = getInitialAmount();
         double r = (getApr()/100.0) / 12;
-        double n = getTimeInYears() * 12;
-        return (P * r) / (1 - Math.pow((1 + r), -n));
-        //double monthlyRate = (rate/100.0) / 12;
-        //int termsInMonths = term * 12;
-        //double monthlyPayment = (r * P)/(1-Math.pow((1+r), -n));
-       //return monthlyPayment;
+        double n = (getTimeInYears() *12) * 12;
+        return P / ((Math.pow((1 + r), n)-1) / (r * (Math.pow((1 + r), n))));
     }
 
     /** Return final loan amount*/
