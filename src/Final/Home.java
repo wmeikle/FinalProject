@@ -53,15 +53,15 @@ try{
          * A = P ((r(1+r)^n) / ((1+r)^n-1))
          */
         double P = getInitialAmount();
-        double r = (getApr()/100.0) / 12;
-        double n = (getTimeInYears() *12) * 12;
+        double r = getApr()/ (100 * 12);
+        double n = getTimeInYears() * 12;
         return P / ((Math.pow((1 + r), n)-1) / (r * (Math.pow((1 + r), n))));
     }
 
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        int tim = (getTimeInYears() * 12) * 12;
+        int tim = getTimeInYears() * 12;
         return Payment() * tim;
     }
     DecimalFormat df = new DecimalFormat("###,##0.00");
