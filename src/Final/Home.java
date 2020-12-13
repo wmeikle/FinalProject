@@ -49,8 +49,8 @@ try{
     /** Return monthly minimum payment*/
     public double Payment() {
         // Using previously inputted variables calculate minimum monthly payment
-        /**
-         * A = P ((r(1+r)^n) / ((1+r)^n-1))
+        /*
+          A = P ((r(1+r)^n) / ((1+r)^n-1))
          */
         double P = getInitialAmount();
         double r = getApr()/ (100 * 12);
