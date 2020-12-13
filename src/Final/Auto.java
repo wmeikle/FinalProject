@@ -65,7 +65,7 @@ public class Auto extends LoanObject {
     /** Return final loan amount*/
     public double FinalTotal() {
         // Using previously inputted variables calculate and return final amount
-        int tim = getTimeInYears() * 12;
+        int tim = (getTimeInYears() * 12) * 12;
         return Payment() * tim;
     }
     DecimalFormat df = new DecimalFormat("###,##0.00");
