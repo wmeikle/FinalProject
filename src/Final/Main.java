@@ -42,7 +42,15 @@ public class Main {
                 }
                 for(int i = 0; i<1; i++){
                     double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                    if (InitialAmount < 0){
+                        System.out.println("Error: Input must be greater than 0. Now you have to start all the way at the beginning again. Oof.");
+                        System.exit(3);
+                    }
                     int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
+                    if (TimeInYears < 0){
+                        System.out.println("Error: Input must be greater than 0. Now you have to start all the way at the beginning again. Oof.");
+                        System.exit(3);
+                    }
 
                     Home loan = new Home(InitialAmount, TimeInYears);
                     list.add(loan);
@@ -65,7 +73,15 @@ public class Main {
             }
             for(int i = 0; i<1; i++){
                 double InitialAmount = getInteger("Enter the amount of the loan in whole dollars: \n", input);
+                if (InitialAmount < 0){
+                    System.out.println("Error: Input must be greater than 0. Now you have to start all the way at the beginning again. Oof.");
+                    System.exit(3);
+                }
                 int TimeInYears = getInteger("Enter the length of the loan in whole years: \n", input);
+                if (TimeInYears < 0){
+                    System.out.println("Error: Input must be greater than 0. Now you have to start all the way at the beginning again. Oof.");
+                    System.exit(3);
+                }
 
                 Auto loan = new Auto(InitialAmount, TimeInYears);
                 list.add(loan);
@@ -87,7 +103,8 @@ public class Main {
             if (input.hasNextInt()){
                 validInt = input.nextInt();
                 break;
-            }else {
+            }
+            else {
                 System.out.println("Error: Input must be an integer.");
                 System.out.print(prompt);
                 input.next();
